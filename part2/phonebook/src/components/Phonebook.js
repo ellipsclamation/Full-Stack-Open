@@ -1,15 +1,24 @@
-const Entry = ({ name, number, filter }) => {
+const Entry = ({ name, number, filter, deleteEntry }) => {
   if (name.toLowerCase().includes(filter.toLowerCase())) {
     return (
-      <p>{name} {number}</p>
+      <div>
+        {name} {number}
+        <button onClick={deleteEntry}>delete</button>
+      </div>
     )
   }
 }
 
-const Entries = ({ persons, filter }) => {
+const Entries = ({ persons, filter, deleteEntry }) => {
   return (
     <div>
-      {persons.map(person => <Entry key={person.name} name={person.name} number={person.number} filter={filter} />)}
+      {persons.map(person => <Entry
+        key={person.id}
+        name={person.name}
+        number={person.number}
+        filter={filter}
+        deleteEntry={() => deleteEntry(person.id, person.name)}
+      />)}
     </div>
   )
 }

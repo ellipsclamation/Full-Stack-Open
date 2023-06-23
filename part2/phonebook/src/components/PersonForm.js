@@ -1,35 +1,13 @@
 const PersonForm = ({
-  persons,
-  setPersons,
+  addEntry,
   newName,
-  setNewName,
   handleNameChange,
   newNumber,
-  setNewNumber,
   handleNumberChange
 }) => {
-  const addPerson = (event) => {
-    event.preventDefault()
-
-    if (persons.find(person => person.name === newName)) {
-      alert(`${newName} is already added to phonebook`)
-    }
-
-    else {
-      const personObject = {
-        name: newName,
-        number: newNumber
-      }
-
-      setPersons(persons.concat(personObject))
-    }
-
-    setNewName('')
-    setNewNumber('')
-  }
 
   return (
-    <form onSubmit={addPerson}>
+    <form onSubmit={addEntry}>
       <div>name: <input name='name' value={newName} onChange={handleNameChange} /></div>
       <div>number: <input name='number' value={newNumber} onChange={handleNumberChange} /></div>
       <div><button type="submit">add</button></div>
