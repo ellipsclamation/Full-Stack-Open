@@ -1,3 +1,5 @@
+import Weather from './Weather'
+
 const Country = ({ filteredCountries }) => {
   if (filteredCountries.length === 1) {
     const country = filteredCountries[0]
@@ -13,6 +15,7 @@ const Country = ({ filteredCountries }) => {
           )}
         </ul>
         <img src={country.flags.png} />
+        <Weather city={country.capital} />
       </div>
     )
   }

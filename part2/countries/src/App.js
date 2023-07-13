@@ -15,7 +15,7 @@ const App = () => {
   useEffect(() => {
     axios
       .get(URL)
-      .then(response => {
+      .then((response) => {
         setCountries(response.data)
       })
   }, [])
